@@ -1,0 +1,11 @@
+version: "2.1"
+services:
+  ddclient:
+    image: linuxserver/ddclient:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Toronto
+    volumes:
+      - <<your home path>>/ddclient:/config
+    restart: unless-stopped
