@@ -7,7 +7,7 @@ Target: `arm32 based Raspberry Pi 3B running Raspbian. 1 GB ram.`
 graph TD
     a[User] --> |https://yourowncloud.example.com/fileshare|b[Nginx];
     b --> |http://localip:8088| c[Owncloud];
-    c --> |CIFS| d[(Your Owncloud Files)]
+    c --> |Samba| d[(Your Owncloud Files)]
 ```
 
 ## Docker
