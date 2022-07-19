@@ -3,8 +3,15 @@ Instructions for how to set up a Owncloud instance on Docker using a Raspberry P
 
 Target: `arm32 based Raspberry Pi 3B running Raspbian. 1 GB ram.`
 
+```mermaid
+graph TD
+    a[User] --> |https://yourowncloud.example.com/fileshare|b[Nginx];
+    b --> |http://localip:8088| c[Owncloud];
+    c --> |CIFS/SMB| d[(Your Owncloud Files)]
+```
+
 ## Docker
-Install Docker on the Pi
+Install Docker on the Pi [Link](https://www.simplilearn.com/tutorials/docker-tutorial/raspberry-pi-docker)
 
 ## Portainer
 Install Portainer to manage Docker containers. [Link](https://docs.portainer.io/v/ce-2.9/start/install/server/docker/linux)
