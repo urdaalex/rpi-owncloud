@@ -39,6 +39,7 @@ services:
       #- OWNCLOUD_SKIP_CHMOD=true
       - OWNCLOUD_VOLUME_FILES=/mnt/userdata/files
       - OWNCLOUD_LOG_FILE=/mnt/data/owncloud.log
+      - OWNCLOUD_DAV_CHUNK_BASE_DIR=/mnt/data/chunked_uploads_temp
     healthcheck:
       test: ["CMD", "/usr/bin/healthcheck"]
       interval: 30s
