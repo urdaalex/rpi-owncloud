@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Save the environment variables, for CRON job
+printenv > /etc/environment
+
 # Select the crontab file based on the environment
 CRON_FILE="/crontab.prod"
 
