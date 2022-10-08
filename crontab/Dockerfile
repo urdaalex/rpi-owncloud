@@ -4,6 +4,7 @@ FROM alpine
 COPY crontab.prod /crontab.prod
 COPY start.sh /start.sh
 COPY syncdirs.sh /syncdirs.sh
+COPY healthcheck.sh /healthcheck.sh
 
 #Install Packages
 RUN apk update
