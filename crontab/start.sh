@@ -6,7 +6,7 @@ printenv > /etc/environment
 # Select the crontab file based on the environment
 CRON_FILE="/crontab.prod"
 
-sed -i "s|CRON_SCHEDULE|${CRON_SCHEDULE}|g" "$CRON_FILE"
+sed -i "s|CRON_SCHEDULE|$CRON_SCHEDULE|g" "$CRON_FILE"
 
 echo "Loading crontab file: $CRON_FILE"
 
