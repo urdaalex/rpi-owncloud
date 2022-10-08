@@ -1,1 +1,1 @@
-* * * * *  sh /syncdirs.sh
+CRON_SCHEDULE  sh /syncdirs.sh
