@@ -1,0 +1,26 @@
+version: "3"
+
+volumes:
+  condo_backups:
+    name: condo_backup_files
+  home_backups:
+    name: home_backup_files
+
+services:
+  backup:
+    image: urdaalex/crontab-sync
+
+    volumes:
+      - home_backups:/mnt/home_backup_files
+      - condo_backups:/mnt/condo_backup_files
+    environment:
+      - SRC_DIR_PATH=/mnt/condo_backup_files/TEST/
+      - DST_DIR_PATH=/mnt/home_backup_files/TEST/
+      - CRON_ERR_LOGS=/var/log/backup_logs.err
+      - CRON_SCHEDULE=0 4 * * 0 # every sunday at 4am
+    healthcheck:
+      test: ["CMD", "sh", "/healthcheck.sh"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
