@@ -99,3 +99,8 @@ Navigate to `~/ddclient` on your RPI and open `ddclient.conf`. Change the settin
  <<subdomain, e.g. www>>
 
 ```
+
+## crontab-rsync
+An image that runs rsync on a schedule using cron. Useful to sync directories for backups of the Owncloud data.
+
+See [https://hub.docker.com/repository/docker/urdaalex/crontab-rsync](https://hub.docker.com/repository/docker/urdaalex/crontab-rsync) for more details.
