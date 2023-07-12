@@ -7,20 +7,20 @@ volumes:
     name: home_backup_files
 
 services:
-  backup:
+  file_backups:
+    container_name: crontab-rsync
     image: urdaalex/crontab-rsync
-
     volumes:
       - home_backups:/mnt/home_backup_files
       - condo_backups:/mnt/condo_backup_files
     environment:
-      - SRC_DIR_PATH=/mnt/condo_backup_files/TEST/
-      - DST_DIR_PATH=/mnt/home_backup_files/TEST/
+      - SRC_DIR_PATH=/mnt/condo_backup_files/CONDO/ALEX-DESKTOP/
+      - DST_DIR_PATH=/mnt/home_backup_files/CONDO/ALEX-DESKTOP/
       - CRON_ERR_LOGS=/var/log/backup_logs.err
-      - CRON_SCHEDULE=0 4 * * 0 # every sunday at 4am
+      - CRON_SCHEDULE=0 4 * * * # every day at 4am
     healthcheck:
       test: ["CMD", "sh", "/healthcheck.sh"]
       interval: 30s
       timeout: 10s
       retries: 5
-
+    restart: on-failure:5
